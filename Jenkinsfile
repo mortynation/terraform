@@ -2,11 +2,11 @@ pipeline {
     agent {label 'slaveNode1'}
     stages('init') {
         echo 'initializing'
-        script {
-            dir() {
-                sh 'terraform init'
-            }
-        }
+        // script {
+        //     dir() {
+        //         sh 'terraform init'
+        //     }
+        // }
 
     }
     stages('validate') {
@@ -14,19 +14,19 @@ pipeline {
     }
     stages('plan') {
         echo 'planning'
-        script {
-            dir() {
-                sh 'terraform plan'
-            }
-        }
+        // script {
+        //     dir() {
+        //         sh 'terraform plan'
+        //     }
+        // }
 
     }
     stages('apply') {
         echo 'applying'
-        script {
-            dir() {
-                sh 'terrafrom apply -auto-approve'
-            }
-        }
+        // script {
+        //     dir() {
+        //         sh 'terrafrom apply -auto-approve'
+        //     }
+        // }
     }
 }
