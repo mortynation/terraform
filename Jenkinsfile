@@ -1,32 +1,39 @@
 pipeline {
-    agent {label 'slaveNode1'}
-    stages('init') {
-        echo 'initializing'
-        // script {
-        //     dir() {
-        //         sh 'terraform init'
-        //     }
-        // }
-
+    agent {
+        label 'slaveNode1'
     }
-    stages('validate') {
-        echo 'validating'
-    }
-    stages('plan') {
-        echo 'planning'
-        // script {
-        //     dir() {
-        //         sh 'terraform plan'
-        //     }
-        // }
-
-    }
-    stages('apply') {
-        echo 'applying'
-        // script {
-        //     dir() {
-        //         sh 'terrafrom apply -auto-approve'
-        //     }
-        // }
+    stages {
+        stage('init') {
+            steps {
+                echo 'initializing'
+                script {
+                    // Replace this with your actual 'terraform init' command
+                    sh 'terraform init'
+                }
+            }
+        }
+        stage('validate') {
+            steps {
+                echo 'validating'
+            }
+        }
+        stage('plan') {
+            steps {
+                echo 'planning'
+                script {
+                    // Replace this with your actual 'terraform plan' command
+                    sh 'terraform plan'
+                }
+            }
+        }
+        stage('apply') {
+            steps {
+                echo 'applying'
+                script {
+                    // Replace this with your actual 'terraform apply' command
+                    sh 'terraform apply -auto-approve'
+                }
+            }
+        }
     }
 }
